@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Configurações do GIF de fundo */
+    background-image: url('imagens/fundo.jpg'); /* Substitua pelo nome exato do seu arquivo */
+    background-size: cover;             /* Faz o GIF cobrir toda a tela */
+    background-position: center;        /* Centraliza o GIF */
+    background-repeat: no-repeat;       /* Não repete a imagem */
+    background-attachment: fixed;       /* O fundo fica parado ao rolar a página */
+    
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+header {
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.logo { font-weight: bold; font-size: 1.2rem; }
+
+nav a { margin-left: 20px; text-decoration: none; color: #555; font-size: 0.9rem; }
+.btn-inscrever { color: #1a1a1a; font-weight: bold; }
+
+.main-content {
+    text-align: center;
+    margin-top: 100px;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.label { color: #2563eb; font-size: 0.75rem; letter-spacing: 1px; font-weight: bold; margin-bottom: 20px; }
+h1 { font-size: 3.5rem; line-height: 1.1; margin: 20px 0; }
+p { color: #666; font-size: 1.1rem; margin-bottom: 30px; }
+
+form { display: flex; gap: 10px; justify-content: center; }
+input { padding: 12px; border: 1px solid #ccc; border-radius: 6px; width: 250px; }
+button { background: #2563eb; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+.footer-text { margin-top: 15px; font-size: 0.7rem; color: #999; letter-spacing: 0.5px; }
+
+.benefits-section {
+    display: flex;
+    padding: 80px 50px;
+    gap: 50px;
+    align-items: center;
+    background: #fff;
+}
+
+.benefits-text { flex: 1; }
+.grid-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.benefits-image {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.benefits-image img { width: 100%; border-radius: 20px; }
+
+/* Ajuste simples para os badges (você pode posicionar com absolute se preferir) */
+.badge { background: #f0f0f0; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 10px; }
+
+.benefits-image img {
+    width: 400%;
+    max-width: 600px;   /* Limita o tamanho máximo da imagem */
+    border-radius: 15px;
+}
+
+.news-section {
+    /* Aumentei de 800px para 1000px para ocupar mais espaço lateral */
+    max-width: 1000px; 
+    width: 90%; /* Garante que ela seja responsiva */
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.news-item {
+    display: flex;
+    gap: 40px; 
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+    align-items: flex-start;
+}
+
+.date { 
+    color: #888; 
+    font-size: 0.9rem; 
+    min-width: 100px; /* Um pouco mais de espaço para a data */
+}
+
+.news-item strong {
+    font-size: 1.3rem; /* Título um pouco maior */
+    display: block;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.news-item p {
+    font-size: 1.1rem; /* Texto da descrição maior */
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    
+    /* Regras para o efeito de reticências (...) */
+    white-space: nowrap;      /* Mantém em uma linha */
+    overflow: hidden;         /* Esconde o excesso */
+    text-overflow: ellipsis;  /* Adiciona os ... */
+    max-width: 750px;         /* Define a largura máxima do texto */
+}
+
+
+.final-cta {
+    margin-top: 60px;
+    padding: 40px;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.final-cta button {
+    margin-top: 20px;
+    background: #2563eb;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.footer {
+    width: 100%;
+    background: #f9f9f7; /* Cor de fundo suave */
+    padding: 60px 0 20px 0;
+    margin-top: 80px;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-brand { max-width: 300px; }
+.footer-brand .logo { margin-bottom: 15px; color: #1a1a1a; }
+.footer-brand p { font-size: 0.9rem; color: #666; line-height: 1.5; }
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-links h4 {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    display: block;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    max-width: 1000px;
+    margin: 40px auto 0;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    font-size: 0.75rem;
+    color: #999;
+}
