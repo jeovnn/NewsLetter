@@ -3,7 +3,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     
     /* Configurações do GIF de fundo */
-    background-image: url('fundo.jpg'); /* Substitua pelo nome exato do seu arquivo */
+    background-image: url('imagens/fundo.jpg'); /* Substitua pelo nome exato do seu arquivo */
     background-size: cover;             /* Faz o GIF cobrir toda a tela */
     background-position: center;        /* Centraliza o GIF */
     background-repeat: no-repeat;       /* Não repete a imagem */
