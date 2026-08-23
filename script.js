@@ -12,33 +12,31 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
     botao.disabled = true;
     botao.textContent = 'Enviando...';
 
-    try {
-      const resposta = await fetch('http://localhost:3000/cadastro', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email }),
-      });
+try {
+  const resposta = await fetch('http://localhost:3000/cadastro', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email }),
+  });
 
-      if (!resposta.ok) {
-        throw new Error('Erro na resposta da API: ' + resposta.status);
-      }
+  if (resposta.status === 409) {
+    alert('Este e-mail já está cadastrado!');
+    return;
+  }
 
-      alert('Obrigado por se inscrever com o e-mail: ' + email);
-      document.getElementById('emailInput').value = ''; // limpa o campo após sucesso
+  if (!resposta.ok) {
+    throw new Error('Erro na resposta da API: ' + resposta.status);
+  }
 
-    } catch (erro) {
-      console.error('Erro ao cadastrar:', erro);
-      alert('Não foi possível concluir a inscrição. Tente novamente em instantes.');
-    } finally {
+  alert('Obrigado por se inscrever com o e-mail: ' + email);
+  document.getElementById('emailInput').value = '';
+
+} catch (erro) {
+  console.error('Erro ao cadastrar:', erro);
+  alert('Não foi possível concluir a inscrição. Tente novamente em instantes.');
+} finally {
       botao.disabled = false;
       botao.textContent = textoOriginalBotao;
     }
   }
-});
-
-// 3. Inicialização
-document.addEventListener('DOMContentLoaded', () => {
-    carregarNoticias();
 });
