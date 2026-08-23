@@ -1,43 +1,41 @@
-// 1. Configuração da API da Planilha
-const API_URL = 'https://script.google.com/macros/s/AKfycbycYFMp3wBmS7gSQyVU-rycwX4JUt4Q6tXXoBRI1pO3Wu30Q29JcXU251HCarPmMPv8rA/exec'; 
+// 2. Lógica do Formulário de Newsletter
+document.getElementById('newsletterForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
 
-async function carregarNoticias() {
-    const container = document.querySelector('.news-list');
-    if (!container) return; // Evita erro se a seção não existir na página
+  const email = document.getElementById('emailInput').value;
+
+  if (email) {
+    // Pega referência do botão pra dar feedback visual durante o envio
+    const botao = event.target.querySelector('button[type="submit"]');
+    const textoOriginalBotao = botao.textContent;
+
+    botao.disabled = true;
+    botao.textContent = 'Enviando...';
 
     try {
-        const resposta = await fetch(API_URL);
-        const noticias = await resposta.json();
-        
-        container.innerHTML = ''; 
+      const resposta = await fetch('http://localhost:3000/cadastro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email }),
+      });
 
-        noticias.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'news-item';
-            div.innerHTML = `
-                <span class="date">${item.data || ''}</span>
-                <div>
-                    <strong>${item.titulo}</strong>
-                    <p>${item.corpo || ''}</p>
-                </div>
-            `;
-            container.appendChild(div);
-        });
+      if (!resposta.ok) {
+        throw new Error('Erro na resposta da API: ' + resposta.status);
+      }
+
+      alert('Obrigado por se inscrever com o e-mail: ' + email);
+      document.getElementById('emailInput').value = ''; // limpa o campo após sucesso
+
     } catch (erro) {
-        console.error("Erro ao carregar notícias:", erro);
+      console.error('Erro ao cadastrar:', erro);
+      alert('Não foi possível concluir a inscrição. Tente novamente em instantes.');
+    } finally {
+      botao.disabled = false;
+      botao.textContent = textoOriginalBotao;
     }
-}
-
-// 2. Lógica do Formulário de Newsletter
-document.getElementById('newsletterForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const email = document.getElementById('emailInput').value;
-    
-    if(email) {
-        alert('Obrigado por se inscrever com o e-mail: ' + email);
-        // Aqui você pode integrar com o seu n8n usando fetch() também, se desejar!
-    }
+  }
 });
 
 // 3. Inicialização
