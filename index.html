@@ -24,11 +24,89 @@
             Fique por dentro de tudo que está rolando no universo da 
             tecnologia no Brasil e no mundo.</p>
         
-        <form id="newsletterForm">
-            <input type="email" id="emailInput" placeholder="seu@email.com" required>
-            <button type="submit">Assinar →</button>
-        </form>
-        <div class="footer-text">SEM SPAM · CANCELE A QUALQUER MOMENTO</div>
+<form id="newsletterForm">
+    <input type="email" id="emailInput" placeholder="seu@email.com" required>
+    <button type="submit">Assinar →</button>
+</form>
+
+<div class="days-selector">
+    <span class="days-label">SELECIONE OS DIAS QUE VOCÊ QUER RECEBER</span>
+    <div class="days-row">
+        <div class="days-options">
+            <label class="day-checkbox">
+                <input type="checkbox" name="dias" value="seg">
+                <span class="day-circle"></span>
+                <span class="day-name">Seg</span>
+            </label>
+            <label class="day-checkbox">
+                <input type="checkbox" name="dias" value="ter">
+                <span class="day-circle"></span>
+                <span class="day-name">Ter</span>
+            </label>
+            <label class="day-checkbox">
+                <input type="checkbox" name="dias" value="qua">
+                <span class="day-circle"></span>
+                <span class="day-name">Qua</span>
+            </label>
+            <label class="day-checkbox">
+                <input type="checkbox" name="dias" value="qui">
+                <span class="day-circle"></span>
+                <span class="day-name">Qui</span>
+            </label>
+            <label class="day-checkbox">
+                <input type="checkbox" name="dias" value="sex">
+                <span class="day-circle"></span>
+                <span class="day-name">Sex</span>
+            </label>
+            <label class="day-checkbox">
+                <input type="checkbox" name="dias" value="sab">
+                <span class="day-circle"></span>
+                <span class="day-name">Sáb</span>
+            </label>
+            <label class="day-checkbox">
+                <input type="checkbox" name="dias" value="dom">
+                <span class="day-circle"></span>
+                <span class="day-name">Dom</span>
+            </label>
+        </div>
+
+        <div class="days-warning" id="daysWarning">
+            Você vai receber as notícias apenas nos dias selecionados. Não enviamos resumo dos outros dias.
+        </div>
+    </div>
+
+    <div class="days-hint">Você pode alterar isso a qualquer momento dentro do e-mail.</div>
+
+<div class="time-selector">
+    <span class="days-label">SELECIONE O HORÁRIO QUE VOCÊ QUER RECEBER</span>
+    <div class="time-row">
+        <div class="time-options">
+    <label class="time-option">
+        <input type="radio" name="horario" value="07:00">
+        <span class="time-pill">7:00</span>
+    </label>
+    <label class="time-option">
+        <input type="radio" name="horario" value="12:00">
+        <span class="time-pill">12:00</span>
+    </label>
+    <label class="time-option">
+        <input type="radio" name="horario" value="16:00">
+        <span class="time-pill">16:00</span>
+    </label>
+    <label class="time-option">
+        <input type="radio" name="horario" value="20:00">
+        <span class="time-pill">20:00</span>
+    </label>
+</div>
+
+        <div class="time-warning" id="timeWarning">
+            Será o horário de envio das notícias das últimas 24h, contando a partir do horário selecionado.
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="footer-text">SEM SPAM · CANCELE A QUALQUER MOMENTO</div>
     </main>
 
     <section id="beneficios">
